@@ -2,39 +2,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>VISOR DE DATOS DE MADURACIÓN</title>
-    <style>
-        body { font-family: Helvetica, sans-serif; padding: 2rem; background: #f5f5f5; }
-        h1 { color: #146314; }
-        .logo { height: 40px; vertical-align: middle; }
-        .filters, .chart-section, .table-section { margin-top: 2rem; background: white; padding: 1rem; border-radius: 8px; }
-        select, input { margin: 0.5rem; padding: 0.4rem; }
-    </style>
+  <meta charset="UTF-8">
+  <title>VISOR MADURACIÓN CARE</title>
+  <style>
+    body {
+      font-family: Helvetica, sans-serif;
+      background-color: #f8f8f8;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #146314;
+    }
+    .logo {
+      max-width: 100px;
+      margin-bottom: 1rem;
+    }
+    .filtros, .graficas, .tabla {
+      background-color: white;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input[type="date"] {
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.85rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 4px;
+      text-align: center;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
-    <img src="logo.jpg" alt="CARE Logo" class="logo">
-    <h1>VISOR DE DATOS DE MADURACIÓN</h1>
-    <div class="filters">
-        <h3>Filtros</h3>
-        <label>Año:</label><select><option>2024</option></select>
-        <label>Fecha:</label><input type="date">
-        <label>Bodega:</label><select><option>CARE</option></select>
-        <label>Zona:</label><select><option>CADILLOS</option></select>
-        <label>Variedad:</label><select><option>GARNACHA</option></select>
-        <label>Punto:</label><select><option>FILAS 1-2</option></select>
-        <label>Ensayo:</label><select><option>-</option></select>
-    </div>
-    <div class="chart-section">
-        <h3>Gráficas</h3>
-        <p>(Aquí se mostrarán las gráficas de Grado – Acidez Total – pH, Brix, Solutos, IMF, MATUROX)</p>
-    </div>
-    <div class="table-section">
-        <h3>Tabla de resultados</h3>
-        <table border="1" cellpadding="5">
-            <thead><tr><th>Fecha</th><th>Punto</th><th>Grado</th><th>Acidez</th><th>pH</th></tr></thead>
-            <tbody><tr><td>2024-08-01</td><td>FILAS 1-2</td><td>13.2</td><td>5.6</td><td>3.4</td></tr></tbody>
-        </table>
-    </div>
+  <img src="logo_care.jpg" alt="Logo CARE" class="logo">
+  <h1>VISOR MADURACIÓN CARE</h1>
+
+  <div class="filtros">
+    <h3>Filtros</h3>
+    <label>Año:</label>
+    <select id="filtroAnio"></select>
+
+    <label>Fecha (de):</label>
+    <input type="date" id="filtroDesde">
+    <label>a</label>
+    <input type="date" id="filtroHasta">
+
+    <label>Bodega/Viticultor:</label>
+    <select id="filtroBodega"></select>
+
+    <label>Zona:</label>
+    <select id="filtroZona"></select>
+
+    <label>Variedad:</label>
+    <select id="filtroVariedad"></select>
+
+    <label>Punto Muestreo:</label>
+    <select id="filtroPunto"></select>
+
+    <label>Tipo Punto:</label>
+    <select id="filtroTipoPunto"></select>
+
+    <button onclick="filtrarDatos()">Aplicar filtros</button>
+  </div>
+
+  <div class="graficas">
+    <h3>Gráficas</h3>
+    <canvas id="graficaGrado"></canvas>
+    <canvas id="graficaBrix"></canvas>
+    <canvas id="graficaAzucar"></canvas>
+    <canvas id="graficaIMF"></canvas>
+    <canvas id="graficaMaturox"></canvas>
+  </div>
+
+  <div class="tabla">
+    <h3>Resultados</h3>
+    <div id="tablaResultados"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="visor.js"></script>
 </body>
 </html>
