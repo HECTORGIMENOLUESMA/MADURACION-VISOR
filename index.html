@@ -1,103 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>VISOR MADURACIÓN CARE</title>
-  <style>
-    body {
-      font-family: Helvetica, sans-serif;
-      background-color: #f8f8f8;
-      padding: 2rem;
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-      color: #146314;
-    }
-    .logo {
-      max-width: 100px;
-      margin-bottom: 1rem;
-    }
-    .filtros, .graficas, .tabla {
-      background-color: white;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    label {
-      font-weight: bold;
-    }
-    select, input[type="date"] {
-      margin-right: 1rem;
-      margin-top: 0.5rem;
-    }
-    canvas {
-      max-width: 100%;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 0.85rem;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 4px;
-      text-align: center;
-    }
-    th {
-      background-color: #eee;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VISOR DE MADURACIÓN CARE</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <img src="logo_care.jpg" alt="Logo CARE" class="logo">
-  <h1>VISOR MADURACIÓN CARE</h1>
-
-  <div class="filtros">
-    <h3>Filtros</h3>
-    <label>Año:</label>
-    <select id="filtroAnio"></select>
-
-    <label>Fecha (de):</label>
-    <input type="date" id="filtroDesde">
-    <label>a</label>
-    <input type="date" id="filtroHasta">
-
-    <label>Bodega/Viticultor:</label>
-    <select id="filtroBodega"></select>
-
-    <label>Zona:</label>
-    <select id="filtroZona"></select>
-
-    <label>Variedad:</label>
-    <select id="filtroVariedad"></select>
-
-    <label>Punto Muestreo:</label>
-    <select id="filtroPunto"></select>
-
-    <label>Tipo Punto:</label>
-    <select id="filtroTipoPunto"></select>
-
-    <button onclick="filtrarDatos()">Aplicar filtros</button>
-  </div>
-
-  <div class="graficas">
-    <h3>Gráficas</h3>
-    <canvas id="graficaGrado"></canvas>
-    <canvas id="graficaBrix"></canvas>
-    <canvas id="graficaAzucar"></canvas>
-    <canvas id="graficaIMF"></canvas>
-    <canvas id="graficaMaturox"></canvas>
-  </div>
-
-  <div class="tabla">
-    <h3>Resultados</h3>
-    <div id="tablaResultados"></div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="visor.js"></script>
+  <header>
+    <h1>VISOR DE MADURACIÓN CARE</h1>
+  </header>
+  <main>
+    <section id="filtros">
+      <!-- Aquí irán los filtros -->
+    </section>
+    <section id="graficas">
+      <!-- Aquí irán las gráficas -->
+    </section>
+    <section id="tabla">
+      <!-- Aquí irá la tabla -->
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
