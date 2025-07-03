@@ -1,1 +1,0 @@
-// Aquí irá el script JS con filtros, lectura de Excel y visualización (lo incluiré en la siguiente iteración)
