@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muestreos de Vendimia</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <h1>Muestreos de Vendimia 2024</h1>
+
+  <div id="filtros">
+    <label>Bodega: <select id="filtro-bodega"></select></label>
+    <label>Viticultor: <select id="filtro-viticultor"></select></label>
+    <label>Año: <select id="filtro-anio"></select></label>
+    <label>Zona: <select id="filtro-zona"></select></label>
+    <label>Variedad: <select id="filtro-variedad"></select></label>
+    <label>Punto: <select id="filtro-punto"></select></label>
+  </div>
+
+  <table id="tabla-muestreos">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="./data.js"></script>
+  <script src="./scripts.js"></script>
+</body>
+</html>
